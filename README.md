@@ -7,6 +7,5 @@
 <ol>
   <li>There will be total of around <strong>450 Ds&Algo</strong> questions</li>
   <li>All my codings will be in JAVA language</li>
-  <li>I will try my best to commit atleast 4 code daily</li>
 </ol>
 
