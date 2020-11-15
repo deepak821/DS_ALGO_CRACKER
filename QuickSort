@@ -1,0 +1,46 @@
+public class QuickSort {
+    static int partition(int[] a, int low, int high){
+        int pivot=a[low];
+        int i=low+1;
+        int j=high;
+        int temp=0;
+        while(j>=i){
+            if(a[i]>pivot){
+                if(a[j]<pivot){
+                    temp=a[j];
+                    a[j]=a[i];
+                    a[i]=temp;
+                    i++;
+                    j--;
+                }
+                else{
+                    j--;
+                }
+            }
+            else{
+                i++;
+            }
+        }
+        temp=a[low];
+        a[low]=a[j];
+        a[j]=temp;
+        return j;
+    }
+    static void quicksort(int[] a,int low,int high){
+         if(low<high){
+            int par = partition(a, low, high);
+             quicksort(a, low, par-1);
+             quicksort(a, par+1, high);
+         }
+    }
+
+    public static void main(String[] args) {
+        int[] a={10,7,8,9,1,5};
+        int inn=0;
+        int n=a.length;
+        quicksort(a, inn, n-1);
+        for(int i=0;i<=n;i++){
+            System.out.println(a[i]);
+        }
+    }
+}
