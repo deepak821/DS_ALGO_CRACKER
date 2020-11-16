@@ -1,0 +1,51 @@
+import java.util.*;
+public class KthSmallest {
+    static int partition(int[] a,int low,int high){
+        int pivot=a[low];
+        int i=low+1;
+        int j=high;
+        int temp=0;
+        while(j>=i){
+            if(a[i]>pivot){
+                if(a[j]<pivot){
+                    temp=a[j];
+                    a[j]=a[i];
+                    a[i]=temp;
+                    i++;
+                    j--;
+                }
+                else
+                j--;
+            }
+            else
+            i++;
+        }
+        temp=a[low];
+        a[low]=a[j];
+        a[j]=temp;
+        return j;
+    }
+    static int quicksort(int[] a,int low,int high,int k){
+           int par = partition(a, low, high);
+           if(par==k)
+               return a[par];
+           else if(par>k)
+            return quicksort(a, low, par-1,k);
+            else
+            return quicksort(a, par+1, high,k);
+        
+   }
+    public static void main(String[] args) {
+        int inn=0;
+        Scanner sc=new Scanner(System.in);
+        System.out.print("enter length");
+        int n=sc.nextInt();
+        int[] a=new int[n];
+        System.out.print("enter array");
+        for(int i=0;i<n;i++)
+        a[i]=sc.nextInt();
+        int k=sc.nextInt();
+        int res=quicksort(a, inn, n-1, k-1);
+        System.out.println(res);
+    }
+}
