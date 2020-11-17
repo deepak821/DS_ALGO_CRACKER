@@ -1,0 +1,28 @@
+import java.util.*;
+public class UnionOfArray {
+    static int union(int[] A,int[] B,int N,int M){
+        Set<Integer> s=new HashSet<Integer>();
+        for(int i=0;i<N;i++)
+        s.add(A[i]);
+        for(int i=0;i<M;i++)
+        s.add(B[i]);
+        return s.size();
+    }
+	public static void main (String[] args) {
+		//code
+		Scanner sc=new Scanner(System.in);
+		int T=sc.nextInt();
+		while(T-->0){
+		    int N=sc.nextInt();
+		    int M=sc.nextInt();
+		    int[] A=new int[N];
+		    int[] B=new int[M];
+		    for(int i=0;i<N;i++)
+		    A[i]=sc.nextInt();
+		    for(int i=0;i<M;i++)
+		    B[i]=sc.nextInt();
+		    int len=union(A,B,N,M);
+		    System.out.println(len);
+		}
+	}
+}
