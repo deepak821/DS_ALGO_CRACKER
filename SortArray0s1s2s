@@ -1,0 +1,40 @@
+import java.util.*;
+public class SortArray {
+    public static void sort012(int a[], int n){
+        // code here 
+        int low=0;
+        int mid=0;
+        int high=n-1;
+        int temp=0;
+        while(mid<=high){
+            if(a[mid]==0){
+                temp=a[mid];
+                a[mid]=a[low];
+                a[low]=temp;
+                low++;
+                mid++;
+            }
+            else if(a[mid]==2){
+                temp=a[mid];
+                a[mid]=a[high];
+                a[high]=temp;
+                high--;
+            }
+            else
+            mid++;
+    }
+        
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] a=new int[n];
+        for(int i=0;i<n;i++){
+            a[i]=sc.nextInt();
+        }
+        sort012(a,n);
+        for(int i=0;i<n;i++){
+            System.out.print(a[i]+" ");
+        }
+    }
+}
