@@ -1,0 +1,23 @@
+import java.util.*;
+class kadanesAlgo{
+    static int maxSubarraySum(int arr[], int n){
+        int s1=0,s2=0;
+        for(int i=0;i<n;i++){
+            s1=s1+arr[i];
+            if(s1<0)
+            s1=0;
+            if(s2<s1)
+            s2=s1;
+        }
+       return s2; 
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] a=new int[n];
+        for(int i=0;i<n;i++)
+        a[i]=sc.nextInt();
+        int sum=maxSubarraySum(a,n);
+        System.out.println(sum);
+    }
+}
