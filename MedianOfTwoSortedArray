@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class MedianOfTwoSortedArray {
+    public static void main(String[] args) {
+        int ind=0;
+        double mid=0.0;
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int m=sc.nextInt();
+        int[] arr1=new int[n];
+        int[] arr2=new int[m];
+        for(int i=0;i<n;i++)
+        arr1[i]=sc.nextInt();
+        for(int i=0;i<m;i++)
+        arr2[i]=sc.nextInt();
+        int[] a=new int[n+m];
+        for(int i=0;i<n;i++)
+        a[i]=arr1[i];
+        for(int i=n;i<n+m;i++)
+        a[i]=arr2[i-n];
+        Arrays.sort(a);
+        if((m+n)%2==0){
+            System.out.println("even");
+            ind=(m+n)/2;
+            System.out.println(ind);
+            mid=(double)(a[ind-1]+a[ind])/2;
+        }
+        else{
+            System.out.println("odd");
+            ind=(m+n+1)/2;
+            mid=a[ind-1];
+        }
+        System.out.println(mid);
+        }
+        }
