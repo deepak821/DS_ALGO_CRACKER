@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class MergeWithoutExtraSpace {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int m=sc.nextInt();
+        int[] arr1=new int[n];
+        int[] arr2=new int[m];
+        for(int i=0;i<n;i++)
+        arr1[i]=sc.nextInt();
+        for(int i=0;i<m;i++)
+        arr2[i]=sc.nextInt();
+        int[] a=new int[n+m];
+        for(int i=0;i<n;i++)
+        a[i]=arr1[i];
+        for(int i=n;i<n+m;i++)
+        a[i]=arr2[i-n];
+        Arrays.sort(a);
+        for(int i=0;i<n;i++)
+        arr1[i]=a[i];
+        for(int i=n;i<n+m;i++)
+        arr2[i-n]=a[i];
+        System.out.print("arr1= ");
+        for(int i=0;i<n;i++)
+        System.out.print(arr1[i]);
+        System.out.println();
+        System.out.print("arr2= ");
+        for(int i=0;i<m;i++)
+        System.out.print(arr2[i]);
+    }
+}
